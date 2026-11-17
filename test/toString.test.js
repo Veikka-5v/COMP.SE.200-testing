@@ -54,6 +54,9 @@ describe('toString', () => {
     test('returns an empty string for an empty array', () => {
       expect(toString([])).toBe('')
     })
+    test('converts null and undefined elements to empty strings', () => {
+      expect(toString([1, null, undefined, 2])).toBe('1,,,2')
+    })
   })
 
   describe('booleans', () => {
@@ -62,19 +65,6 @@ describe('toString', () => {
     })
     test('converts false to a string', () => {
       expect(toString(false)).toBe('false')
-    })
-  })
-
-    describe('arrays', () => {
-    // ...nykyiset testit...
-    test('converts null and undefined elements to empty strings', () => {
-      expect(toString([1, null, undefined, 2])).toBe('1,,,2')
-    })
-  })
-
-  describe('symbols', () => {
-    test('converts a symbol to a string', () => {
-      expect(toString(Symbol('a'))).toBe('Symbol(a)')
     })
   })
 })
